@@ -15,7 +15,7 @@ setup(
     packages=find_packages(),
     install_requires=requirements,
     include_package_data=True,
-    description='Your project description here',
+    description='Generative ai project',
     author='Kanishka Rani',
     author_email='kanishka22043@gmail.com',
     url='https://github.com/kanishka-rani-2005/MedicalChatbot/tree/main',
