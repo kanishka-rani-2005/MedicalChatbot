@@ -22,7 +22,7 @@ logger.info('Data embedding done')
 PINECONE_API_KEY=os.environ.get('PINECONE_API_KEY')
 
 pc = Pinecone(api_key=PINECONE_API_KEY)
-index_name = "medicalchatbot"
+index_name = "medical-chatbot"
 index = pc.Index(index_name)
 
 docsearch = PineconeVectorStore.from_texts(
