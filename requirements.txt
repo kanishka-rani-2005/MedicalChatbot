@@ -1,0 +1,6 @@
+langchain==0.0.225
+sentence-transformers==2.2.2
+ctransformers==0.2.5
+pypdf
+flask
+pinecone-client
