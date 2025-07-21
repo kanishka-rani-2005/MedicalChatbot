@@ -1,13 +1,24 @@
-langchain==0.0.225
-langchain-community==0.0.38
-sentence-transformers==2.2.2
-huggingface-hub==0.15.1
-transformers==4.26.1
-tokenizers==0.13.3
-ctransformers==0.2.5
+# requirements.txt
+
+# Core LangChain - let pip choose the latest compatible versions
+langchain
+langchain-community
+langchain-pinecone
+langchain-huggingface
+
+# LLM & Embeddings Libraries
+sentence-transformers
+# Using a specific compatible transformers version for broader support
+transformers>=4.38
+# CTransformers with CUDA support if needed. Or use 'ctransformers' for CPU.
+ctransformers
+tokenizers
+
+# Other dependencies
+pinecone-client
 pypdf
 flask
-pinecone-client
-langchain_pinecone
+huggingface-hub
 
+# To install your local project package
 -e .
