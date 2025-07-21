@@ -5,3 +5,5 @@ ctransformers==0.2.5
 pypdf
 flask
 pinecone-client
+
+-e .
