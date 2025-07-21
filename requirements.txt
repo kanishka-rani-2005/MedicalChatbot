@@ -1,6 +1,9 @@
 langchain==0.0.225
-langchain-community
+langchain-community==0.0.38
 sentence-transformers==2.2.2
+huggingface-hub==0.15.1
+transformers==4.26.1
+tokenizers==0.13.3
 ctransformers==0.2.5
 pypdf
 flask
