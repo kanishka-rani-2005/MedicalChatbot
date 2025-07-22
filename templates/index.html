@@ -1,47 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot</title>
-    <!-- Add your CSS and Font Awesome links here -->
-    <link rel="stylesheet" href="static/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medical Chatbot</title>
+
+  <!-- Bootstrap & Font Awesome -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+  
+  <!-- jQuery -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
+
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card chat">
-                    <div class="card-header msg_head">
-                        <div class="d-flex bd-highlight">
-                            <div class="img_cont">
-                                <img src="bot_avatar.png" class="rounded-circle user_img" alt="Chatbot avatar">
-                            </div>
-                            <div class="user_info">
-                                <span>Chatbot</span>
-                                <p>Ask me anything</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="chat-body" class="card-body msg_card_body">
-                        <!-- Chat messages will appear here -->
-                    </div>
-                    <div class="card-footer">
-                        <form id="chat-form" class="input-group">
-                            <input type="text" name="message" id="message" placeholder="Type your message..." class="form-control type_msg" required>
-                            <div class="input-group-append">
-                                <button type="submit" id="send" class="input-group-text send_btn" aria-label="Send message">
-                                    <i class="fas fa-location-arrow"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+  <div class="container-fluid h-100">
+    <div class="row justify-content-center h-100">
+      <div class="col-md-8 col-xl-6 chat">
+        <div class="card">
+          <div class="card-header msg_head">
+            <div class="d-flex bd-highlight">
+              <div class="img_cont">
+                <img src="{{ url_for('static', filename='bot_avatar.png') }}" class="rounded-circle user_img" alt="Bot Avatar">
+                <span class="online_icon"></span>
+              </div>
+              <div class="user_info">
+                <span>Medical Chatbot</span>
+                <p>Ask me anything about your health</p>
+              </div>
             </div>
+          </div>
+
+          <div id="messageFormeight" class="card-body msg_card_body">
+            <!-- Messages will be injected here -->
+          </div>
+
+          <div class="card-footer">
+            <form id="messageArea" class="input-group">
+              <input type="text" id="text" name="msg" placeholder="Type your message..." class="form-control type_msg" autocomplete="off" required>
+              <div class="input-group-append">
+                <button type="submit" id="send" class="input-group-text send_btn">
+                  <i class="fas fa-location-arrow"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+
         </div>
+      </div>
     </div>
+  </div>
 
+  <script>
+    $(document).ready(function () {
+      $("#messageArea").on("submit", function (event) {
+        const date = new Date();
+        const hour = String(date.getHours()).padStart(2, '0');
+        const minute = String(date.getMinutes()).padStart(2, '0');
+        const str_time = hour + ":" + minute;
+        const rawText = $("#text").val();
 
+        const userHtml = `
+          <div class="d-flex justify-content-end mb-4">
+            <div class="msg_cotainer_send">${rawText}
+              <span class="msg_time_send">${str_time}</span>
+            </div>
+            <div class="img_cont_msg">
+              <img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg">
+            </div>
+          </div>
+        `;
+        $("#text").val("");
+        $("#messageFormeight").append(userHtml);
+
+        $.ajax({
+          data: { msg: rawText },
+          type: "POST",
+          url: "/get",
+        }).done(function (data) {
+          const botHtml = `
+            <div class="d-flex justify-content-start mb-4">
+              <div class="img_cont_msg">
+                <img src="{{ url_for('static', filename='bot_avatar.png') }}" class="rounded-circle user_img_msg">
+              </div>
+              <div class="msg_cotainer">${data}
+                <span class="msg_time">${str_time}</span>
+              </div>
+            </div>
+          `;
+          $("#messageFormeight").append($(botHtml));
+        });
+
+        event.preventDefault();
+      });
+    });
+  </script>
 </body>
 </html>
