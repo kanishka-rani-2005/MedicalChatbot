@@ -6,29 +6,44 @@ A context-aware medical chatbot powered by **Meta's LLaMA 2** and integrated wit
 
 ## 📁 Project Structure
 📦 medical-chatbot/
-├── .vscode/
-├── data/
-├── experiment/
-├── logs/
-├── mchatbot/
-├── model/
-├── ProjectImage/
-├── src/
-├── static/
-├── templates/
-├── venv/
-├── .env
-├── .gitignore
-├── app.py
-├── store_index.py
-├── requirements.txt
-├── setup.py
-├── README.md
-└── Medical_Chatbot.egg-info/
 
-yaml
-Copy
-Edit
+├── .vscode/
+
+├── data/
+
+├── experiment/
+
+├── logs/
+
+├── mchatbot/
+
+├── model/
+
+├── ProjectImage/
+
+├── src/
+
+├── static/
+
+├── templates/
+
+├── venv/
+
+├── .env
+
+├── .gitignore
+
+├── app.py
+
+├── store_index.py
+
+├── requirements.txt
+
+├── setup.py
+
+├── README.md
+
+└── Medical_Chatbot.egg-info/
 
 ---
 
@@ -122,4 +137,5 @@ Cloud deployment (AWS, Azure, GCP)
 ### 👩‍💻 Author
 
 KANISHKA RANI
+
 Computer Science Engineering | AI/ML Enthusiast
