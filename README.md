@@ -1,68 +1,125 @@
-Medical Chatbot using LLAMA2
+# 🏥 Medical Chatbot using LLaMA 2
 
+A context-aware medical chatbot powered by **Meta's LLaMA 2** and integrated with **LangChain**, **Pinecone**, and **Flask**. This bot can retrieve relevant medical information and provide meaningful responses using a quantized LLaMA 2 model and vector-based search.
 
-Create environment
+---
+
+## 📁 Project Structure
+📦 medical-chatbot/
+├── .vscode/
+├── data/
+├── experiment/
+├── logs/
+├── mchatbot/
+├── model/
+├── ProjectImage/
+├── src/
+├── static/
+├── templates/
+├── venv/
+├── .env
+├── .gitignore
+├── app.py
+├── store_index.py
+├── requirements.txt
+├── setup.py
+├── README.md
+└── Medical_Chatbot.egg-info/
+
+yaml
+Copy
+Edit
+
+---
+
+## 🚀 Getting Started
+
+### 1. 📦 Create a Virtual Environment
 
 ```bash
-
 conda create -p venv python=3.8 -y
 
-```
-
-Activate environment
+2. ✅ Activate the Environment
 
 ```bash
 conda activate venv
+
 ```
 
-
-Install libraries
+3. 📥 Install Required Packages
 
 ```bash
 pip install -r requirements.txt
+
 ```
 
-
+🔐 Environment Variables
+Create a .env file in the root directory and add your Pinecone API key:
 
 ```ini
-
-PINCONE_API_KEY='XXXXXXXXXXXXXXXXXXXXXXXXX'
+PINECONE_API_KEY='your_pinecone_api_key_here'
 ```
 
-### Download the quantize model from link provided 
+🤖 Download LLaMA 2 Model
 
-```ini
+Download the quantized model llama-2-7b-chat.ggmlv3.q4_0.bin from:
 
-llama-2-7b-chat.ggmlv3.q4_0.bin
+🔗 Hugging Face – TheBloke/Llama-2-7B-Chat-GGML
+
+Place the model file in the appropriate directory used in your code.
 
 
-https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main
-
-```
-
-### Store vectors in Pinecone
+🧠 Index Medical Knowledge
+Use the following command to embed and store data into Pinecone:
 
 ```bash
 python store_index.py
 ```
 
-
-### Run the chatbot
+💬 Run the Chatbot
+Launch the Flask server:
 ```bash
 python app.py
 ```
 
-Now,
-```bash
+Open your browser and go to:
 
-open up localhost:
+```bash
+http://localhost:
 ```
 
-### Techstack Used:
 
-- Python
-- LangChain
-- Flask
-- Meta Llama2
-- Pinecone
-- Huggingface Transformers
+### 🛠 Tech Stack
+Python 3.8
+
+Flask – Web framework
+
+LangChain – Orchestration framework
+
+Meta LLaMA 2 – Foundational language model
+
+Pinecone – Vector database for semantic search
+
+Hugging Face Transformers – Model integration
+
+
+### 📸 Screenshots
+
+![Chatbot Demo](ProjectImage/demo.png)
+
+### 🧪 Future Improvements
+UI enhancements using React/Next.js
+
+Integration with voice input/output
+
+Fine-tuning on domain-specific datasets
+
+Cloud deployment (AWS, Azure, GCP)
+
+
+
+
+### 👩‍💻 Author
+
+KANISHKA RANI
+Computer Science Engineering | AI/ML Enthusiast
