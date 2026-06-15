@@ -1,8 +1,7 @@
 
-from langchain.document_loaders import PyMuPDFLoader,DirectoryLoader,PyPDFLoader
+from langchain_community.document_loaders import DirectoryLoader,PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.llms import CTransformers
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface  import HuggingFaceEmbeddings
 
 
 def load_pdf(data):
