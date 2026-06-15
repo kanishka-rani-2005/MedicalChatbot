@@ -1,11 +1,11 @@
 # requirements.txt
 
 # Core LangChain - let pip choose the latest compatible versions
-langchain
-langchain-community
 langchain-pinecone
-langchain-huggingface
-langchain-text-splitters
+langchain==0.1.20
+langchain-community==0.0.38
+langchain-text-splitters==0.0.2
+langchain-huggingface==0.0.3
 # LLM & Embeddings Libraries
 sentence-transformers
 # Using a specific compatible transformers version for broader support
