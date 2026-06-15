@@ -20,5 +20,3 @@ pypdf
 flask
 huggingface-hub
 
-# To install your local project package
--e .
