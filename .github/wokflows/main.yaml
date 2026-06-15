@@ -1,0 +1,38 @@
+name: Deploy Medical Chatbot
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+
+    runs-on: self-hosted
+
+    steps:
+
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Create .env
+      run: |
+        echo "PINECONE_API_KEY=${{ secrets.PINECONE_API_KEY }}" > .env
+
+    - name: Stop Existing Container
+      run: |
+        docker stop medical-chatbot || true
+        docker rm medical-chatbot || true
+
+    - name: Build Docker Image
+      run: |
+        docker build -t medical-chatbot .
+
+    - name: Run Container
+      run: |
+        docker run -d \
+        --name medical-chatbot \
+        --restart always \
+        -p 8080:8080 \
+        --env-file .env \
+        medical-chatbot
