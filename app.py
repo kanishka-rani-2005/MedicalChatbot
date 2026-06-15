@@ -2,8 +2,8 @@ from flask import Flask, render_template, request
 from src.helper import download_embedding
 from langchain_pinecone import PineconeVectorStore
 from pinecone import Pinecone
-from langchain.prompts import PromptTemplate
-from langchain.llms import CTransformers
+from langchain_core.prompts import PromptTemplate
+from langchain_community.llms import CTransformers
 from langchain.chains import RetrievalQA
 from dotenv import load_dotenv
 from src.prompt import *

@@ -5,7 +5,6 @@ from pinecone import Pinecone
 import os
 from dotenv import load_dotenv
 from src.logger import logger
-import pinecone
 
 load_dotenv()
 
