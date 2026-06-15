@@ -1,22 +1,21 @@
-# requirements.txt
-
-# Core LangChain - let pip choose the latest compatible versions
-langchain-pinecone
 langchain==0.1.20
 langchain-community==0.0.38
-langchain-text-splitters==0.0.2
-langchain-huggingface==0.0.3
-# LLM & Embeddings Libraries
-sentence-transformers
-# Using a specific compatible transformers version for broader support
-transformers>=4.38
-# CTransformers with CUDA support if needed. Or use 'ctransformers' for CPU.
-ctransformers
-tokenizers
 
-# Other dependencies
 pinecone-client==2.2.2
-pypdf
-flask
-huggingface-hub
 
+ctransformers==0.2.27
+
+sentence-transformers==2.7.0
+transformers==4.38.2
+tokenizers==0.15.2
+
+huggingface-hub==0.22.2
+
+pypdf==4.2.0
+
+flask==3.0.3
+
+python-dotenv==1.0.1
+
+numpy<2
+urllib3<2
