@@ -1,7 +1,7 @@
 # requirements.txt
 
 # Core LangChain - let pip choose the latest compatible versions
-langchain
+langchain==0.0.225
 langchain-community
 langchain-pinecone
 langchain-huggingface
@@ -15,7 +15,7 @@ ctransformers
 tokenizers
 
 # Other dependencies
-pinecone-client
+pinecone-client==2.2.2
 pypdf
 flask
 huggingface-hub
